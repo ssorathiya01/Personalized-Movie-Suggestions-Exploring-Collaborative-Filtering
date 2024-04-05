@@ -24,12 +24,12 @@ def cofi_cost_func(X, W, b, Y, R, lambda_):
     J = 0
     for j in range(nu):
         w = W[j,:]
-        b_j = b[0,j]
+        B = b[0,j]
         for i in range(nm):
             x = X[i,:]
             y = Y[i,j]
             r = R[i,j]
-            J += r * np.square((np.dot(w,x) + b_j - y ))
+            J += r * np.square((np.dot(w,x) + B - y ))
     J += (lambda_) * (np.sum(np.square(W)) + np.sum(np.square(X)))
     J = J/2
      
